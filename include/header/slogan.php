@@ -1,0 +1,1 @@
+<img src="/include/images/logo-text.png" alt="">
