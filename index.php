@@ -59,17 +59,6 @@ $APPLICATION->SetTitle("Космос - корпоративный сайт");
 		);
 		?>
 	</div>
-
-	<div class="col_full nobottommargin">
-		<?
-		$APPLICATION->IncludeFile(
-				"/include/main/portfolio.php",
-				Array(),
-				Array("MODE" => "html")
-		);
-		?>
-	</div>
-
 	<div class="col_full nobottommargin">
 		<div class="heading-block center">
 			<h3>Наши клиенты</h3>
