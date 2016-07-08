@@ -11,36 +11,6 @@ $aMenuLinks = Array(
         ""
     ),
     Array(
-        "Информация",
-        "info/",
-        Array(),
-        Array(
-            "icon" => "line2-info",
-            "subtext" => "Новости и статьи"
-        ),
-        ""
-    ),
-    Array(
-        "Курсы",
-        "study/",
-        Array(),
-        Array(
-            "icon" => "study",
-            "subtext" => "Обучение"
-        ),
-        ""
-    ),
-    Array(
-        "Услуги",
-        "services/",
-        Array(),
-        Array(
-            "icon" => "line2-briefcase",
-            "subtext" => "Чем полезны"
-        ),
-        ""
-    ),
-    Array(
         "Каталог",
         "catalog/",
         Array(),
@@ -51,12 +21,22 @@ $aMenuLinks = Array(
         ""
     ),
     Array(
-        "Портфолио",
-        "portfolio/",
+        "Информация",
+        "info/",
         Array(),
         Array(
-            "icon" => "line2-check",
-            "subtext" => "Успешные проекты"
+            "icon" => "line2-info",
+            "subtext" => "Новости и статьи"
+        ),
+        ""
+    ),
+    Array(
+        "Услуги",
+        "services/",
+        Array(),
+        Array(
+            "icon" => "line2-briefcase",
+            "subtext" => "Чем полезны"
         ),
         ""
     ),
