@@ -93,6 +93,27 @@ $APPLICATION->IncludeComponent(
 						</div>
 
 					</div>
+
+					<div class="col_one_third col_last">
+						<?/*
+						<div class="widget subscribe-widget clearfix">
+							$APPLICATION->IncludeFile(
+									SITE_DIR . "include/footer/subscribe.php",
+									Array(),
+									Array("MODE" => "html")
+							);
+						</div>
+						*/?>
+						<div class="widget clearfix" style="margin-bottom: -20px;">
+							<?
+							$APPLICATION->IncludeFile(
+									SITE_DIR . "include/footer/social_block.php",
+									Array(),
+									Array("MODE" => "html")
+							);
+							?>
+						</div>
+					</div>
 				</div>
 
 			</div>

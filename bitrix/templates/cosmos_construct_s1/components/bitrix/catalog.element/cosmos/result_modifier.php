@@ -14,6 +14,7 @@ $arDefaultParams = array(
 );
 
 $arParams = array_merge($arDefaultParams, $arParams);
+
 $arParams['NL_IMAGE_RESIZE_WIDTH'] = (int) $arParams['NL_IMAGE_RESIZE_WIDTH'];
 $arParams['NL_IMAGE_RESIZE_HEIGHT'] = (int) $arParams['NL_IMAGE_RESIZE_HEIGHT'];
 $arParams['NL_IMAGE_RESIZE_TYPE'] = (int) $arParams['NL_IMAGE_RESIZE_TYPE'];
@@ -34,7 +35,6 @@ if ($arParams["NL_USE_IMAGE_THUMB_RESIZE"] == "Y") {
                 'HEIGHT' => $arFileTmp["height"],
             );
         }
-
     foreach ($arResult["DISPLAY_PROPERTIES"]["MORE_PHOTO"]["FILE_VALUE"] as $keyFile => $arPhoto){
         $pictureId = $arPhoto["ID"];
         if (isset($pictureId) && $pictureId > 0) {

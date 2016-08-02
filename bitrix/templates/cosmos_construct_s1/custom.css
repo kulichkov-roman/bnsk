@@ -1,1 +1,8 @@
 /* put you CSS code here */
+
+.product-image > a,
+.product-image .slide a,
+.product-image img {
+    display: block;
+    width: 180px;
+}
