@@ -1,3 +1,3 @@
-&copy; 2016 ООО «Молоток»<br>
-<span>г. Новосибирск, ул. Выставочная, дом №15/1,<br> офис 404/1</span><br>
+&copy; <?$x=2016; $now=getdate(); if($now["year"]>$x){echo $now["year"];} else {echo $x;}?> ООО «Молоток»<br>
+<span>г. Новосибирск, Высокогорная 2-я ул, дом № 40</span><br>
 <a href="/company/contacts/">Смотреть на карте</a>

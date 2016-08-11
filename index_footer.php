@@ -5,7 +5,7 @@
 	<div class="container clearfix">
 		<div class="row">
 			<div class="col-md-7">
- <img alt="Доверьтесь нам" src="/include/images/bottom-trust.jpg">
+ <img alt="Доверьтесь нам" src="/include/images/man.png">
 			</div>
 			<div class="col-md-5 topmargin-sm">
 				<div class="heading-block nobottomborder">
@@ -23,4 +23,3 @@
 		</div>
 	</div>
 </div>
- <br>
