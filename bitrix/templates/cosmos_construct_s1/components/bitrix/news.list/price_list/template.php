@@ -40,7 +40,7 @@ $this->setFrameMode(true);
 				}
 
 				?>
-				<a class="price__link" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+				<a class="price__link" id="<?=$this->GetEditAreaId($arItem['ID']);?>" href="<?=CFile::GetPath($arItem['PROPERTIES']['FILE']['VALUE']);?>">
 					<i class="<?=$class?>" aria-hidden="true"></i><?=$arItem["NAME"].'.'.$arItem['PROPERTIES']['TYPE_PRICE']['VALUE']?><span><?if($arFile['FILE_SIZE']){?>(<?=round($arFile['FILE_SIZE'], 2)?> мб)<?}?></span>
 				</a>
 			<?}?>
