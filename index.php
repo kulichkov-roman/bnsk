@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Космос - корпоративный сайт");
+$APPLICATION->SetTitle("Пивной мир - группа компаний");
 ?>
 
 	<div class="col_full nobottommargin">

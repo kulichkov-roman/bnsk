@@ -32,10 +32,10 @@ CModule::IncludeModule("boxsol.cosmos");
 
         <!-- External JavaScripts
         ============================================= -->
-        <?
-        ?>
-        <title><? $APPLICATION->ShowTitle() ?></title>
-
+        <?$APPLICATION->AddHeadString('
+            <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+        ');?>
+        <title><?$APPLICATION->ShowTitle()?></title>
     </head>
 <?
 $bodyClass = "";
