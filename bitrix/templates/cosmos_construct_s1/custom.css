@@ -10,3 +10,9 @@
 .price__link {cursor:pointer;display: block;font-size: 16px;font-weight: 700;padding-bottom: 15px}
 .price__link span {font-weight: 400;padding-left: 4px;}
 .price__link i {color: #222;padding-right: 10px;}
+
+
+.dark .slider-caption,
+.dark .slider-caption h2 {
+    color: #444 !important;
+}
