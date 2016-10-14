@@ -76,11 +76,25 @@ if ($headerType == 2 && $menuBgColor == "Y") {
 
 $showTopSearch = CMarsHelper::getOptionString("boxsol.cosmos", 'show_top_search', 'Y');
 $showTopBar = CMarsHelper::getOptionString("boxsol.cosmos", 'show_top_bar', 'N');
-
 ?>
+<?$APPLICATION->IncludeComponent('bitrix:main.include', '',
+    Array(
+        'AREA_FILE_SHOW' => 'file',
+        'PATH' => '/include/header/hd_ga.php',
+        'EDIT_TEMPLATE' => ''
+    ),
+    false
+);?>
 <body class="<?= $bodyClass ?>">
-<? $APPLICATION->ShowPanel(); ?>
-
+<?$APPLICATION->ShowPanel();?>
+    <?$APPLICATION->IncludeComponent('bitrix:main.include', '',
+        Array(
+            'AREA_FILE_SHOW' => 'file',
+            'PATH' => '/include/header/hd_ya.php',
+            'EDIT_TEMPLATE' => ''
+        ),
+        false
+    );?>
     <!-- Document Wrapper
     ============================================= -->
 <div id="wrapper" class="clearfix">
