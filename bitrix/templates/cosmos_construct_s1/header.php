@@ -80,6 +80,14 @@ $showTopBar = CMarsHelper::getOptionString("boxsol.cosmos", 'show_top_bar', 'N')
 <?$APPLICATION->IncludeComponent('bitrix:main.include', '',
     Array(
         'AREA_FILE_SHOW' => 'file',
+        'PATH' => '/include/header/hd_jvs.php',
+        'EDIT_TEMPLATE' => ''
+    ),
+    false
+);?>
+<?$APPLICATION->IncludeComponent('bitrix:main.include', '',
+    Array(
+        'AREA_FILE_SHOW' => 'file',
         'PATH' => '/include/header/hd_ga.php',
         'EDIT_TEMPLATE' => ''
     ),
