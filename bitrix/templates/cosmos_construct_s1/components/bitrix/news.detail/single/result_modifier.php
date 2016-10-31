@@ -185,7 +185,8 @@ if($USER->isAdmin())
             $arMoreSelect = array(
                 'ID',
                 'NAME',
-                'PREVIEW_PICTURE'
+                'PREVIEW_PICTURE',
+                'DETAIL_PAGE_URL'
             );
             $arMoreFilter = array(
                 'IBLOCK_ID' => $configuration->get('newsIBlock'),
@@ -203,6 +204,9 @@ if($USER->isAdmin())
 
             while ($arMoreItem = $rsElements->Fetch())
             {
+                $arMoreItem['DETAIL_PAGE_URL'] = str_replace('#ELEMENT_CODE#', $arMoreItem['CODE'], $arMoreItem['DETAIL_PAGE_URL']);
+                $arMoreItem['DETAIL_PAGE_URL'] = str_replace('#SITE_DIR#', '/', $arMoreItem['DETAIL_PAGE_URL']);
+
                 $arMoreList[] = $arMoreItem;
             }
 
