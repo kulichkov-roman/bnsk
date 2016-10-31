@@ -189,7 +189,7 @@ if($USER->isAdmin())
                 'DETAIL_PAGE_URL'
             );
             $arMoreFilter = array(
-                'IBLOCK_ID' => $configuration->get('newsIBlock'),
+                'IBLOCK_ID' => $arParams['IBLOCK_ID'],
                 'ID' => $arIds,
                 'ACTIVE' => 'Y'
             );
