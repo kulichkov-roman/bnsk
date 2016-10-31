@@ -66,7 +66,7 @@ $this->setFrameMode(TRUE);
 		); ?>
 
 		<?
-		global $noCurElement;
+		/*global $noCurElement;
 		$noCurElement = array('!ID' => $ElementID);
 		?>
 		<? $APPLICATION->IncludeComponent(
@@ -118,7 +118,7 @@ $this->setFrameMode(TRUE);
 						"NL_IMAGE_RESIZE_TYPE"            => $arParams["NL_IMAGE_RESIZE_TYPE"],
 				),
 				$component
-		); ?>
+		);/*?>
 
 	</div>
 

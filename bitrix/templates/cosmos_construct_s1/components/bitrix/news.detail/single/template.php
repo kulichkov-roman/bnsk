@@ -157,3 +157,27 @@ $this->setFrameMode(true);
 	}
 	</script>
 <?endif;?>
+
+
+<?if(is_array($arResult['PROPERTIES']['MORE']['VALUE']) && count($arResult['PROPERTIES']['MORE']['VALUE']) > 0) {?>
+	<div class="divider"><i class="icon-circle"></i></div>
+	<h4>Смотрите также</h4>
+	<div class="related-posts clearfix">
+		<?foreach ($arResult['PROPERTIES']['MORE']['VALUE'] as &$arItem) {?>
+			<div class="col_half see_more">
+				<div class="mpost clearfix">
+					<div class="entry-image">
+						<a href="<?=$arItem['DETAIL_PAGE_URL']?>">
+							<img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" title="<?=$arItem['NAME']?>" alt="<?=$arItem['NAME']?>">
+						</a>
+					</div>
+					<div class="entry-c">
+						<div class="entry-title">
+							<h4><a href="<?=$arItem['DETAIL_PAGE_URL']?>"><?=$arItem['NAME']?></a></h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?}?>
+	</div>
+<?}?>

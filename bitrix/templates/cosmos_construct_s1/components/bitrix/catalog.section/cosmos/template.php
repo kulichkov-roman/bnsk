@@ -20,8 +20,8 @@ if (!empty($arResult['ITEMS'])):?>
 			?>
 			<div id="<?=$elId?>" class="product clearfix">
 				<div class="product-image">
-					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"></a>
-					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE_SECOND"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"></a>
+					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"></a>
+					<a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE_SECOND"]["SRC"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>"></a>
 					<div class="product-overlay">
 						<?if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY'):?>
 							<a href="<?=$arItem["BUY_URL"]?>" class="add-to-cart" rel="nofollow">

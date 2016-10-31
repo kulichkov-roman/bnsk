@@ -16,3 +16,7 @@
 .dark .slider-caption h2 {
     color: #444 !important;
 }
+
+.col_half.see_more {
+    margin-right: 2% !important;
+}

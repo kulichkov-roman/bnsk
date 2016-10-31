@@ -152,3 +152,113 @@ switch (count($arResult["MORE_PHOTO"])) {
         $arResult["COL_DATA"]["DATA_BIG"] = 'data-big="1"';
         break;
 }
+
+if($USER->isAdmin())
+{
+    $configuration = \Bitrix\Main\Config\Configuration::getInstance();
+
+    if(!empty($arResult['PROPERTIES']['MORE']['VALUE']))
+    {
+        $arIds = array();
+        foreach($arResult['PROPERTIES']['MORE']['VALUE'] as $id)
+        {
+            $arIds[] = $id;
+        }
+
+        $arMoreList = array();
+        $obCache = new CPHPCache();
+        $arCityList = array();
+        $cacheLifeTime = 3600;
+        $cacheID = 'arMoreList';
+        $cachePath = '/yt/'.$cacheID;
+
+        if($obCache->InitCache($cacheLifeTime, $cacheID, $cachePath))
+        {
+            $vars = $obCache->GetVars();
+            $arMoreList = $vars['arMoreList'];
+        }
+        elseif($obCache->StartDataCache())
+        {
+            $arMoreSort = array(
+                'SORT'=>'ASC'
+            );
+            $arMoreSelect = array(
+                'ID',
+                'NAME',
+                'PREVIEW_PICTURE'
+            );
+            $arMoreFilter = array(
+                'IBLOCK_ID' => $configuration->get('newsIBlock'),
+                'ID' => $arIds,
+                'ACTIVE' => 'Y'
+            );
+
+            $rsElements = CIBlockElement::GetList(
+                $arMoreSort,
+                $arMoreFilter,
+                false,
+                false,
+                $arMoreSelect
+            );
+
+            while ($arMoreItem = $rsElements->Fetch())
+            {
+                $arMoreList[] = $arMoreItem;
+            }
+
+            $arPictureIds = array();
+            foreach($arMoreList as $arMoreItem)
+            {
+                $arPictureIds[] = $arMoreItem['PREVIEW_PICTURE'];
+            }
+
+            $arElementIds = array();
+            if(sizeof($arPictureIds) > 0)
+            {
+                $strIds = implode(',', $arPictureIds);
+
+                $fl = new CFile;
+
+                $arOrder = array();
+                $arFilter = array(
+                    'MODULE_ID' => 'iblock',
+                    '@ID' => $strIds
+                );
+
+                $arPreviewPicture = array();
+
+                $rsFile = $fl->GetList($arOrder, $arFilter);
+                while($arItem = $rsFile->Fetch())
+                {
+                    $arPreviewPicture[$arItem['ID']] = $arItem;
+                    $urlPreviewPicture = itc\Resizer::get($arItem['ID'], 'w170h128cr');
+
+                    $arPreviewPicture[$arItem['ID']]['SRC'] = $urlPreviewPicture;
+                }
+
+                foreach($arMoreList as &$arItem)
+                {
+                    if(!$arItem['PREVIEW_PICTURE'] == '')
+                    {
+                        $arItem['PREVIEW_PICTURE'] = array('SRC' => $arPreviewPicture[$arItem['PREVIEW_PICTURE']]['SRC']);
+                    }
+                    else
+                    {
+                        $arItem['PREVIEW_PICTURE'] = array('SRC' =>itc\Resizer::get($configuration->get('w170h128crPlugId'), 'w170h128cr'));
+                    }
+                }
+                unset($arItem);
+            }
+            else
+            {
+                foreach($arMoreList as &$arItem)
+                {
+                    $arItem['PREVIEW_PICTURE'] = array('SRC' => itc\Resizer::get('w170h128crPlugId', 'w170h128cr'));
+                }
+                unset($arItem);
+            }
+            $obCache->EndDataCache(array('arMoreList' => $arMoreList));
+        }
+        $arResult['PROPERTIES']['MORE']['VALUE'] = $arMoreList;
+    }
+}
