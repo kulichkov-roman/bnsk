@@ -51,6 +51,8 @@ $this->setFrameMode(true);
 		<br/>
 		<? foreach ($arResult["DISPLAY_PROPERTIES"] as $pid => $arProperty): ?>
 			<?
+			if($arProperty["CODE"] == 'MORE') continue;
+
 			$icon = CMarsHelper::getIconByPropCode($arProperty["CODE"]);
 			if ($icon) {
 				echo $icon;
