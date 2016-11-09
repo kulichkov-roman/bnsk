@@ -3,7 +3,21 @@
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Main\Config\Option;
 use \Bitrix\Main\Page\Asset;
+use \Bitrix\Main\Application;
 Loc::loadMessages(__FILE__);
+
+$request = Application::getInstance()->getContext()->getRequest();
+$isAjax = $request->getQuery("cosmos_ajax"); 
+if ( isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH'])
+        && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && $isAjax == "Y") {
+	?>
+	</div></div></div>
+	<script type="text/javascript">
+				
+	</script>
+	<?
+	die();
+}
 ?>
 </div><!-- postcontent - or container -->
 <? if ($APPLICATION->GetDirProperty("right_sidebar") == 'Y'): ?>
@@ -47,9 +61,9 @@ $APPLICATION->IncludeComponent(
 </section><!-- content -->
 <!-- Footer
 ============================================= -->
-<footer id="footer"<?if (CMarsHelper::getOptionString("boxsol.cosmos", 'show_dark_footer', 'N') == 'Y') :?> class="dark"<?endif;?>>
+<footer id="footer"<?if (CMarsHelper::getOptionString(COSMOS_MODULE_NAME, 'show_dark_footer', 'N') == 'Y') :?> class="dark"<?endif;?>>
 
-	<?if (CMarsHelper::getOptionString("boxsol.cosmos", 'show_big_footer', 'N') == 'Y') :?>
+	<?if (CMarsHelper::getOptionString(COSMOS_MODULE_NAME, 'show_big_footer', 'N') == 'Y') :?>
 		<div class="container">
 
 			<!-- Footer Widgets
@@ -95,7 +109,7 @@ $APPLICATION->IncludeComponent(
 					</div>
 
 					<div class="col_one_third col_last">
-						<?/*
+					<?/*
 						<div class="widget subscribe-widget clearfix">
 							$APPLICATION->IncludeFile(
 									SITE_DIR . "include/footer/subscribe.php",
@@ -103,7 +117,7 @@ $APPLICATION->IncludeComponent(
 									Array("MODE" => "html")
 							);
 						</div>
-						*/?>
+					*/?>
 						<div class="widget clearfix" style="margin-bottom: -20px;">
 							<?
 							$APPLICATION->IncludeFile(
@@ -113,6 +127,7 @@ $APPLICATION->IncludeComponent(
 							);
 							?>
 						</div>
+
 					</div>
 				</div>
 

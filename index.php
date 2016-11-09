@@ -72,7 +72,15 @@ $APPLICATION->SetTitle("Пивной мир - группа компаний");
 		);
 		?>
 	</div>
-
-
+	<div class="line topmargin-sm"></div>
+	<div class="col_full nobottommargin">
+		<?
+		$APPLICATION->IncludeFile(
+			"/include/main/seo_text.php",
+			Array(),
+			Array("MODE" => "html")
+		);
+		?>
+	</div>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

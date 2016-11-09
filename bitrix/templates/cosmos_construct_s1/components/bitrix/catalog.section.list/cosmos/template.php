@@ -96,7 +96,7 @@ if (0 < $arResult["SECTIONS_COUNT"])
 				<?endif;?>
 				<p><?
 					if ($arCurView["TRUNCATE"]) {
-						echo TruncateText($arSection["DESCRIPTION"], $arParams["TRUNCATE_DESCRIPTION"]);
+						echo truncateStr($arSection["DESCRIPTION"], $arParams["TRUNCATE_DESCRIPTION"], '', 'html');
 					} else {
 						echo $arSection["DESCRIPTION"];
 					}
